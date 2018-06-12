@@ -1,0 +1,23 @@
+# Local/private config goes in the include
+[include]
+        path = ~/.gitconfig.local
+[hub]
+        protocol = https
+[core]
+        excludesfile = ~/.gitignore_global
+        editor = vim
+[push]
+        default = simple
+[alias]
+        ci = commit
+        st = status --short
+        br = branch
+        lold = log --date-order --date=iso --graph --full-history --all --pretty=format:'%x08%x09%C(red)%h %C(cyan)%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
+        l = log --date-order --date=short --graph --full-history --all --pretty=format:'%C(red)%h %C(cyan)%ad %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

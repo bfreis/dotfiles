@@ -1,0 +1,121 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'tpope/vim-fugitive'
+Plugin 'valloric/youcompleteme'
+" Plugin 'wincent/command-t'
+
+call vundle#end()
+filetype plugin indent on
+
+" NERDTree settings
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden=1
+let NERDTreeRespectWildIgnore=1
+
+
+" Airline config
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline_theme='molokai'
+
+
+" Key bindings
+let mapleader = ","
+
+" nnoremap ; :
+" vnoremap ; :
+
+" inoremap jf <esc>
+map <C-n> :NERDTreeToggle<CR>
+map <C-N> :NERDTreeFind<CR>
+map <C-j> :bnext<CR>
+map <C-k> :bprev<CR>
+nnoremap <leader><leader> <C-^>
+nnoremap <leader>c :bp<cr>:bd #<cr>
+
+
+
+
+
+" Ctrlp config
+" set g:ctrlp_custom_ignore = {
+"     \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"     \ 'file': '\v\.(exe|so|dll)$',
+"     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"     \ }
+
+set wildignore+=*/.buckd
+set wildignore+=*/buck-out/cache
+set wildignore+=*/buck-out/log
+set wildignore+=*/buck-out/tmp
+set wildignore+=*/buck-out/.trash
+
+set wildignore+=*/.*.swp
+set wildignore+=*/.git
+
+
+
+
+
+syntax on
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+set cursorline
+
+
+" --- bling/vim-airline ---
+set laststatus=2
+
+" Fancy arrow symbols require a patched font
+" To install a patched font, run over to
+"     https://github.com/abertsch/Menlo-for-Powerline
+" download all the .ttf files, double-click on them and click "Install"
+" Finally, uncomment the next line
+let g:airline_powerline_fonts = 1
+
+" Show PASTE if in paste mode
+let g:airline_detect_paste=1
+
+" Shor airline for tabs too
+let g:airline#extensions#tabline#enabled = 1
+
+" Use the solarized theme for the Airline status bar
+let g:airline_theme='solarized'
+
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set smarttab
+set shiftround
+set autoindent
+set smartindent
+
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
+set hlsearch
+set gdefault
+set hidden
+set number
+
+
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
+set noswapfile
+

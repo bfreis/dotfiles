@@ -1,0 +1,39 @@
+########################
+# Begin DOTFILES zshrc #
+########################
+
+export ZSH=$HOME/.dotfiles
+
+# Load any local, non-public configuration
+# ~/.localrc is a good place to configure API keys, tokens, etc
+[[ -a "$HOME/.localrc" ]] && source ~/.localrc
+
+# load the list of all modules
+typeset -U config_files
+config_files=($ZSH/modules/**/*.zsh)
+
+# first load scripts configuring the PATH env var
+for file in ${(M)config_files:#*/path.zsh}; do
+  source "$file"
+done
+
+# then load everything but not the completion.zsh just yet
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
+  source "$file"
+done
+
+# now initialize the completion system
+autoload -Uz compinit
+compinit
+
+# and load the custom completion files
+for file in ${(M)config_files:#*/completion.zsh}; do
+  source "$file"
+done
+
+# clean up, and done
+unset config_files
+
+######################
+# End DOTFILES zshrc #
+######################

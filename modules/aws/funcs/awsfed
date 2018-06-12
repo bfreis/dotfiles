@@ -1,0 +1,18 @@
+CUSTOM_AWS_SESSION_NAME=${CUSTOM_AWS_SESSION_NAME:-session}
+CUSTOM_AWS_ROLE_NAME=${CUSTOM_AWS_ROLE_NAME:-admin}
+
+aws sts get-federation-token \
+  --name ${CUSTOM_AWS_SESSION_NAME} \
+  --policy '{"Statement":{"Effect":"Allow","Resource":"*","Action":"*"}}' \
+  --duration-seconds 129600 \
+  --query '{"sessionId":Credentials.AccessKeyId,"sessionKey":Credentials.SecretAccessKey,"sessionToken":Credentials.SessionToken}' \
+  | tr -d '\n' \
+  | sed -e 's/ //g'  -e 's/{/%7B/g' -e 's/}/%7D/g' \
+  -e 's/"/%22/g' -e 's/,/%2C/g' -e 's/\//%2F/g' \
+  -e 's/:/%3A/g' -e 's/=/%3D/g' -e 's/+/%2B/g' \
+  | xargs printf '%s%s' "https://signin.aws.amazon.com/federation?Action=getSigninToken&Session=" \
+  | xargs curl -s \
+  | sed -e 's/.*:"\(.*\)".*/\1/' \
+  | xargs printf '%s%s' 'https://signin.aws.amazon.com/federation?Action=login&Destination=https%3A%2F%2Fconsole.aws.amazon.com%2Fconsole%2Fhome%3Fregion%3Dus-west-2&SigninToken='
+
+# vim: ft=zsh
