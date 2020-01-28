@@ -1,0 +1,12 @@
+if [[ "$1" == "" ]]; then
+  aws ec2 describe-regions \
+    --query 'Regions[].[RegionName]' \
+    --output text \
+  | while read region; do
+    echo $region,$(aws --region $region --output text ec2 describe-images --owners amazon --filters 'Name=architecture,Values=x86_64' 'Name=name,Values=amzn2-ami-hvm-2.?.????????.?-x86_64-gp2' --query 'max_by(Images, &CreationDate).ImageId')
+  done
+else
+  aws --region "$1" --output text ec2 describe-images --owners amazon --filters 'Name=name,Values=amzn2-ami-hvm-2.?.????????.?-x86_64-gp2' --query 'max_by(Images, &CreationDate).ImageId'
+fi
+
+# vim: ft=zsh

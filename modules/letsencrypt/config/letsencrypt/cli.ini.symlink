@@ -1,0 +1,3 @@
+config-dir = $HOME/.letsencrypt/config
+work-dir = $HOME/.letsencrypt/work
+logs-dir = $HOME/.letsencrypt/logs

@@ -2,7 +2,7 @@
 # Begin DOTFILES zshrc #
 ########################
 
-export ZSH=$HOME/.dotfiles
+export ZSH=$HOME/dev/dotfiles
 
 # Load any local, non-public configuration
 # ~/.localrc is a good place to configure API keys, tokens, etc

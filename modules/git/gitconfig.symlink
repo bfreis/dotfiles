@@ -4,8 +4,9 @@
 [hub]
         protocol = https
 [core]
-        excludesfile = ~/.gitignore_global
+	excludesfile = /Users/bfreis/.gitignore_global
         editor = vim
+	autocrlf = input
 [push]
         default = simple
 [alias]
@@ -19,5 +20,22 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
+
+[pager]
+	diff = diff-highlight | less
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = Bruno Reis
+	email = bfreis@gmail.com
+[commit]
+	template = /Users/bfreis/.stCommitMsg

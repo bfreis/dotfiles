@@ -82,6 +82,7 @@ function link_one() {
   fi 
 
   if [[ "$dolink" == "true" ]]; then
+    mkdir -p "$(dirname "$dst")"
     ln -s "$src" "$dst"
     if [[ "$file_already_logged" == "true" ]]; then
       log_ok "  linked"
@@ -93,9 +94,13 @@ function link_one() {
 
 function link_all() {
   log_info "installing all dotfiles"
-  for src in $(find -H "$DOTFILES_ROOT/modules" -maxdepth 2 -name '*.symlink' -not -path '*.git*'); do
-    dst="$HOME/.$(basename "${src%.*}")"
-    link_one "$src" "$dst"
+  for module_dir in $(find -H "$DOTFILES_ROOT/modules" -type d -maxdepth 1 -not -path '*.git*' | grep -v "^$DOTFILES_ROOT/modules\$"); do
+    echo "$module_dir"
+    for src in $(find -H "$module_dir" -name '*.symlink' -not -path '*.git*'); do
+      src_rel="${src##$module_dir/}"
+      dst="$HOME/.${src_rel%.*}"
+      link_one "$src" "$dst"
+    done
   done
 }
 
@@ -127,6 +132,7 @@ function run_installers() {
 echo ''
 
 link_all
+exit 0
 install_homebrew
 install_homebrew_apps
 run_installers

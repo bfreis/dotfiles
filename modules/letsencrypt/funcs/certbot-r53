@@ -1,0 +1,9 @@
+certbot \
+  --server "${LETSENCRYPT_SERVER}" \
+  --config-dir "${LETSENCRYPT_HOME}/config" \
+  --work-dir "${LETSENCRYPT_HOME}/work" \
+  --logs-dir "${LETSENCRYPT_HOME}/logs" \
+  certonly --dns-route53 \
+  -n \
+  -d "$1"
+
