@@ -17,6 +17,7 @@ brew "hub"
 brew "iperf3"
 brew "libsodium"
 brew "lnav"
+brew "mas"
 brew "mingw-w64"
 brew "openjdk"
 brew "p7zip"
@@ -29,5 +30,22 @@ brew "wget"
 brew "wifi-password"
 brew "yarn"
 cask "bitbar"
+cask "dropbox"
 cask "easy-move-plus-resize"
+cask "istat-menus"
+cask "iterm2"
+cask "jetbrains-toolbox"
 cask "xca"
+mas "BetterSnapTool", id: 417375580
+mas "Microsoft Excel", id: 462058435
+mas "Microsoft OneNote", id: 784801555
+mas "Microsoft Outlook", id: 985367838
+mas "Microsoft PowerPoint", id: 462062816
+mas "Microsoft Remote Desktop", id: 1295203466
+mas "Microsoft Word", id: 462054704
+mas "OneDrive", id: 823766827
+mas "Rocket.Chat", id: 1086818840
+mas "Telegram", id: 747648890
+mas "Todoist", id: 585829637
+mas "TweetDeck", id: 485812721
+mas "WhatsApp", id: 1147396723
