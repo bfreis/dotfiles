@@ -6,6 +6,7 @@ path=(
   $HOME/bin
   $ZSH/bin
   $HOME/go/bin
+  $HOME/dev/go/bin
   $(brew --prefix)/opt/coreutils/libexec/gnubin
   $(brew --prefix)/opt/openssl/bin
   $path
