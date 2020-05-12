@@ -5,6 +5,7 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
+# shellcheck source=helper_funcs/logging.sh
 source "$DOTFILES_ROOT/helper_funcs/logging.sh"
 
 SKIP_ALL=S
@@ -79,7 +80,7 @@ function link_one() {
     esac
   else # no coflict
     dolink=true
-  fi 
+  fi
 
   if [[ "$dolink" == "true" ]]; then
     mkdir -p "$(dirname "$dst")"
@@ -110,7 +111,7 @@ function install_homebrew() {
     return
   fi
   log_info "Homebrew not found. Installing..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   log_ok "Homebrew installed successfully"
 }
 
