@@ -39,3 +39,8 @@
 	email = bfreis@gmail.com
 [commit]
 	template = /Users/bfreis/.stCommitMsg
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+[http]
+	cookiefile = /Users/bfreis/.gitcookies
