@@ -24,7 +24,7 @@
 	trustExitCode = true
 [credential]
 	helper = osxkeychain
-	UseHttpPath = true
+	useHttpPath = false
 
 [pager]
 	diff = diff-highlight | less
@@ -40,7 +40,3 @@
 [commit]
 	template = /Users/bfreis/.stCommitMsg
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[http]
-	cookiefile = /Users/bfreis/.gitcookies
