@@ -5,4 +5,4 @@ function directory_name() {
   echo "%F{117}%~%F{reset_color}"
 }
 
-export PROMPT=$'$(directory_name) %F{077}ᐅ%F{reset} '
+export PROMPT=$'%F{105}%m%F{reset_color}:$(directory_name) %F{077}ᐅ%F{reset} '
