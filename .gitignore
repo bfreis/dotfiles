@@ -1,2 +1,3 @@
 modules/git/gitconfig.local.symlink
 modules/git/gitignore_local.symlink
+modules/local_*/
