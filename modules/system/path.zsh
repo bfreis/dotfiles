@@ -7,6 +7,7 @@ path=(
   $ZSH/bin
   $HOME/go/bin
   $HOME/dev/go/bin
+  /usr/local/opt/openjdk/bin
   $(brew --prefix)/opt/coreutils/libexec/gnubin
   $(brew --prefix)/opt/openssl/bin
   $path
