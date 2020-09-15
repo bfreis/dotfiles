@@ -1,6 +1,8 @@
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 export CLICOLOR=true
 
+export WORDCHARS='*?_.[]~=&;!#$^(){}<>'
+
 if (( $+commands[vim] )); then
   export EDITOR=vim
 else
