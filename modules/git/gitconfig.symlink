@@ -1,7 +1,7 @@
 [hub]
         protocol = https
 [core]
-	excludesfile = /Users/bfreis/.gitignore_global
+	excludesfile = ~/.gitignore
         editor = vim
 	autocrlf = input
 [push]
