@@ -39,13 +39,30 @@
 	useHttpPath = false
 
 [pager]
-	diff = diff-highlight | less
+	diff = diff-so-fancy | less --tabs=2 -RFX
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[color]
+	ui = true
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	commit = yellow
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 
 # Local/private config goes in the included file. It is included last so that
 # it can override any settings here.
