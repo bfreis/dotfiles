@@ -1,7 +1,7 @@
 # configure fpath to allow autload for any functions in funcs folder in modules
-fpath=($ZSH/modules/**/funcs "${fpath[@]}")
+fpath=($DOTFILES_HOME/modules/**/funcs "${fpath[@]}")
 
 # prepare all funcs for autoloading
-for fnfile in $ZSH/modules/**/funcs/*(:t); do
+for fnfile in $DOTFILES_HOME/modules/**/funcs/*(:t); do
   autoload -Uz $fnfile
 done
