@@ -14,6 +14,7 @@ setopt autopushd
 setopt alwaystoend
 setopt bsdecho
 setopt completeinword
+setopt extendedglob
 setopt monitor
 setopt noflowcontrol
 setopt interactivecomments
