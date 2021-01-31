@@ -17,12 +17,22 @@
         default = simple
 
 [alias]
-        ci = commit
-        co = checkout
-        st = status --short
-        br = branch
-        lold = log --date-order --date=iso --graph --full-history --all --pretty=format:'%x08%x09%C(red)%h %C(cyan)%ad%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08%x08 %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
-        l = log --date-order --date=short --graph --full-history --all --pretty=format:'%C(red)%h %C(cyan)%ad %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
+	ci = commit
+	co = checkout
+	st = status --short
+	br = branch
+	log-pretty = log \
+	  --date-order \
+	  --date=short \
+	  --graph \
+	  --full-history \
+	  --decorate \
+	  --pretty=format:'%C(red)%h %C(cyan)%ad %C(bold blue)%aN%C(reset)%C(bold yellow)%d %C(reset)%s'
+	l = log-pretty \
+	  --branches \
+	  --remotes \
+	  --tags
+	ll = log-pretty --all
 
 [credential]
 	helper = osxkeychain
