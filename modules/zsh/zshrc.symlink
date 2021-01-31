@@ -2,7 +2,7 @@
 # Begin DOTFILES zshrc #
 ########################
 
-export ZSH=$HOME/dev/dotfiles
+export DOTFILES_HOME=$HOME/dev/dotfiles
 
 # Load any local, non-public configuration
 # ~/.localrc is a good place to configure API keys, tokens, etc
@@ -10,7 +10,7 @@ export ZSH=$HOME/dev/dotfiles
 
 # load the list of all modules
 typeset -U config_files
-config_files=($ZSH/modules/**/*.zsh)
+config_files=($DOTFILES_HOME/modules/**/*.zsh)
 
 # first load scripts configuring the PATH env var
 for file in ${(M)config_files:#*/path.zsh}; do

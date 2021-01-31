@@ -4,7 +4,7 @@ path=('/usr/local/bin' $path)
 
 path=(
   $HOME/bin
-  $ZSH/bin
+  $DOTFILES_HOME/bin
   $HOME/go/bin
   $HOME/dev/go/bin
   /usr/local/opt/openjdk/bin
