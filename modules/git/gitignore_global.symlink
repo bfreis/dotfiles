@@ -1,3 +1,18 @@
+###############
+# direnv, env #
+###############
+.env.local*
+.env_local*
+.envrc.local*
+.envrc_local*
+
+#########
+# Bazel #
+#########
+bazel-bin/
+bazel-out/
+bazel-testlogs/
+
 ###################
 # JetBrains stuff #
 # source: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
