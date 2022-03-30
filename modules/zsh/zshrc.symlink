@@ -34,6 +34,10 @@ done
 # clean up, and done
 unset config_files
 
+# Load any local, non-public configuration
+# ~/.localrc.end is a good place to configure overrides
+[[ -a "$HOME/.localrc.end" ]] && source ~/.localrc.end
+
 ######################
 # End DOTFILES zshrc #
 ######################
