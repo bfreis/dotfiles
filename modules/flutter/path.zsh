@@ -1,4 +1,5 @@
 export ANDROID_HOME="$HOME"/Library/Android/sdk
+export ANDROID_NDK_HOME=${ANDROID_HOME}/ndk/$(find "${ANDROID_HOME}"/ndk -type d -mindepth 1 -maxdepth 1 -execdir printf '%s\n' {} + | sort -n -r | head -n 1)
 
 path=(
   "$HOME"/Library/Android/sdk/emulator
