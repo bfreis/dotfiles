@@ -1,5 +1,3 @@
-typeset -U path
-
 export ANDROID_HOME="$HOME"/Library/Android/sdk
 
 path=(
@@ -13,5 +11,3 @@ path=(
   "$HOME"/.pub-cache/bin
   $path
 )
-
-export PATH
