@@ -2,26 +2,28 @@
 # Begin DOTFILES zshrc #
 ########################
 
-export DOTFILES_HOME=$HOME/dev/dotfiles
+export DOTFILES_HOME=${HOME}/dev/dotfiles
+
+source "${DOTFILES_HOME}"/lib/df.zsh
 
 # Load any local, non-public configuration
 # ~/.localrc is a good place to configure API keys, tokens, etc
-[[ -a "$HOME/.localrc" ]] && source ~/.localrc
+__df::source_if_exists ~/.localrc
 
 # load the list of all modules
 typeset -U config_files
-config_files=($DOTFILES_HOME/modules/**/*.zsh)
+config_files=("${DOTFILES_HOME}"/modules/**/*.zsh)
 
 # first load scripts configuring the PATH env var
 typeset -U path
 for file in ${(M)config_files:#*/path.zsh}; do
-  source "$file"
+  __df::source_if_exists "${file}"
 done
 export PATH
 
 # then load everything but not the completion.zsh just yet
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}; do
-  source "$file"
+  __df::source_if_exists "${file}"
 done
 
 # now initialize the completion system
@@ -30,15 +32,16 @@ compinit
 
 # and load the custom completion files
 for file in ${(M)config_files:#*/completion.zsh}; do
-  source "$file"
+  __df::source_if_exists "${file}"
 done
-
-# clean up, and done
-unset config_files
 
 # Load any local, non-public configuration
 # ~/.localrc.end is a good place to configure overrides
-[[ -a "$HOME/.localrc.end" ]] && source ~/.localrc.end
+__df::source_if_exists ~/.localrc.end
+
+## clean up, and done
+unset config_files
+__df::cleanup_funcs
 
 ######################
 # End DOTFILES zshrc #
