@@ -71,3 +71,7 @@
 # it can override any settings here.
 [include]
 	path = ~/.gitconfig.local
+[http]
+	cookiefile = /Users/brunoreis/.gitcookies
+[init]
+	defaultBranch = master
