@@ -1,4 +1,6 @@
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 path=(
-  $(/usr/libexec/java_home)/bin
+  "${JAVA_HOME}"/bin
   $path
 )
