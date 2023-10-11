@@ -6,6 +6,9 @@ export DOTFILES_HOME=${HOME}/dev/dotfiles
 
 source "${DOTFILES_HOME}"/lib/df.zsh
 
+# Initialize homebrew
+__df::init_homebrew
+
 # Load any local, non-public configuration
 # ~/.localrc is a good place to configure API keys, tokens, etc
 __df::source_if_exists ~/.localrc

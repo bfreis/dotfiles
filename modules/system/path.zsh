@@ -1,12 +1,13 @@
 path=(
-  $HOME/bin
-  $DOTFILES_HOME/bin
-  $HOME/go/bin
-  $HOME/dev/go/bin
-  /usr/local/opt/openjdk/bin
-  $(/usr/local/bin/brew --prefix openssh)/bin
-  $(/usr/local/bin/brew --prefix)/opt/coreutils/libexec/gnubin
-  $(/usr/local/bin/brew --prefix)/opt/openssl/bin
+  "${HOME}"/bin
+  "${HOME}"/.local/bin
+  "${DOTFILES_HOME}"/bin
+  "${HOME}"/go/bin
+  "${HOME}"/dev/go/bin
+  "$("${HOMEBREW_PREFIX}"/bin/brew --prefix openjdk)"/bin
+  "$("${HOMEBREW_PREFIX}"/bin/brew --prefix openssh)"/bin
+  "$("${HOMEBREW_PREFIX}"/bin/brew --prefix coreutils)"/libexec/gnubin
+  "$("${HOMEBREW_PREFIX}"/bin/brew --prefix openssl)"/bin
   '/usr/local/bin'
   $path
 )

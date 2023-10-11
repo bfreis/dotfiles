@@ -4,6 +4,15 @@ __df::debug() {
   fi
 }
 
+__df::init_homebrew() {
+  if [[ $(arch) == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+  else
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+  eval "$("${HOMEBREW_PREFIX}"/bin/brew shellenv)"
+}
+
 __df::source_if_exists() {
   local file="$1"
   if [[ -f "${file}" ]]; then
